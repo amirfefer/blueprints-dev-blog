@@ -16,7 +16,7 @@ To get started, follow these steps to register for the Red Hat Developer Subscri
 
 ### 1. Create and Customize a Red Hat Linux Image via blueprints
 
-Red Hat cloud services allow you to create and customize Red Hat Enterprise Linux (RHEL) images using blueprints. Create a blueprint for your **golden image**, modify it over time as your needs change, and use it to build and deploy images on demand. Here's how to do it, Let's create a blueprint for our Apache Demo:
+Red Hat cloud services allow you to create and customize Red Hat Enterprise Linux (RHEL) images using blueprints. Create a blueprint for your **golden image**, modify it over time as your needs change, and use it to build and deploy images on demand. Here's how to do it, Let's create a blueprint for our Apache demo:
 
 ![blueprint wizard](blueprint_wizard.png)
 
@@ -29,25 +29,25 @@ Red Hat cloud services allow you to create and customize Red Hat Enterprise Linu
 2. **Setting Google Cloud Source:**
    --TODO--
 
-3. **Register your system**
+3. **Register your system:**
    - Your no cost subscription allows up to 16 systems
-   - Open the Activation key dropdown and create a default key if there is no key. 
+   - Open the Activation key dropdown and click on create a default key or choose an existing one. 
 
 4. **OpenSCAP profile:**
-   - This step allows you to add openSCAP profile for your image, in our demo we skip this step. Click **next**.
+   - This step allows you to add openSCAP profile for your image, for this demo we can skip this step. Click **next**.
 
 5. **File system configuration:**
    - This step configures the partitioning of the image.
    - Keep the recommended automatic partitioning for this Demo.
 
-6. **Manage content**
-   This step allow you to customize the repositories and packages to build the image.
+6. **Manage content:**
+   This step allow you to customize the repositories and packages.
    Go to **Additional packages** search and add these packages:
    - httpd: Apache server
    - ansible-core: For running first boot playbook
    - rhel-system-roles: For using RHEL ansible roles
 
-7. **First boot**
+7. **First boot:**
    This step configure the image with a custom script that will execute on its first boot. The script can be shell, python, yml, etc. Just add on top shebang string.
    For this demo we will use Ansible playbook for transforms the system into Apache server:
 
@@ -117,7 +117,7 @@ Red Hat cloud services allow you to create and customize Red Hat Enterprise Linu
             name: httpd
             state: resta/varrted
         
-8. **Save and build the blueprint**
+8. **Save and build the blueprint:**
    After giving a name and description to our new blueprint, have a double check on the review section and save your blueprint. Open the save button dropdown and click **Save changes and build image** this creates the blueprint and also build the image. Red Hat makes it easy to manage your blueprints for future use:
    
     **Store Blueprints:**
