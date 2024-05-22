@@ -145,10 +145,10 @@ Upload a public key or choose an existing one, to avoid failures use **ed25519**
    - Review and launch your new Apache server!
    - This process might take a minute, once it finished a table with IP address and ssh command will be shown. Copy your new Apache server IP Address.
 
-### 3. Expose http connection
+### 3. Expose HTTP connection
 *Reminder: this is a demo for dev or demo environment, not production*
 
-To allow http connection in our GCP instance, log in to your GCP console -> VM Instances -> Edit your new instance -> Enable Allow HTTP traffic in Network interfaces section.
+To allow HTTP connection in our GCP instance, log in to your GCP console -> VM Instances -> Edit your new instance -> Enable Allow HTTP traffic in Network interfaces section.
 
 And that's it! your new Apache server is running with your custom RHEL image!
 
