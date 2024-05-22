@@ -1,0 +1,64 @@
+#!/usr/bin/ansible-playbook
+
+---
+- hosts: localhost
+  connection: local
+  become: yes
+  gather_facts: yes
+
+  tasks:
+    - name: Ensure firewalld is installed
+      yum:
+        name: firewalld
+        state: present
+
+    - name: Ensure firewalld is started and enabled
+      systemd:
+        name: firewalld
+        state: started
+        enabled: true
+
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start and enable Apache
+      systemd:
+        name: httpd
+        state: started
+        enabled: true
+
+    - name: Deploy Hello World HTML page
+      copy:
+        content: |
+          <html>
+          <head>
+              <title>Hello World</title>
+          </head>
+          <body>
+              <h1>Hello World</h1>
+              <p>This is a basic HTML page served from Apache on a RHEL machine in GCP with <a href='https://console.redhat.com'>Image builder service</a>.</p>
+          </body>
+          </html>
+        dest: /var/www/html/index.html
+      notify:
+        - restart apache
+
+    - name: Configure firewall for web console
+      include_role:
+        name: redhat.rhel_system_roles.firewall
+      vars:
+        firewall:
+          services:
+            - name: http
+              state: enabled
+
+    - name: Correct SELinux context for custom HTML page
+      command: restorecon -v /var/www/html/index.html
+
+  handlers:
+    - name: restart apache
+      systemd:
+        name: httpd
+        state: resta/varrted
