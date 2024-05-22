@@ -52,9 +52,9 @@ Red Hat cloud services allow you to create and customize Red Hat Enterprise Linu
    For this demo we will use Ansible playbook for transforms the system into Apache server:
 
      ```yml
-     #!/usr/bin/ansible-playbook
+    #!/usr/bin/ansible-playbook
 
-     ---
+    ---
     - hosts: localhost
     connection: local
     become: yes
@@ -115,7 +115,7 @@ Red Hat cloud services allow you to create and customize Red Hat Enterprise Linu
         - name: restart apache
         systemd:
             name: httpd
-            state: resta/varrted
+            state: restarted
         
 8. **Save and build the blueprint:**
    After giving a name and description to our new blueprint, have a double check on the review section and save your blueprint. Open the save button dropdown and click **Save changes and build image** this creates the blueprint and also build the image. Red Hat makes it easy to manage your blueprints for future use:
@@ -135,20 +135,19 @@ The build process takes a few minutes, once the image has been built successfull
 
 ![launch wizard](launch_wizard.png)
 
-7. **Compute configuration**
+1. **Compute configuration:**
   - Select your google cloud source.
   - Select a machine type, you can filter by vcpus, memory and capacity. Type *vcpus=1 and memory>2000* and pick **n1-standard-1** for this demo.
-8. **SSH key**
-Upload a public key or choose an existing one, to avoid failures use **ed25519** 
- - You can create a new public key by running ```ssh-keygen -t ed25519```
-9. **Launch**
-   - Review and launch your new Apache server!
+2. **SSH key:**
+Keep in mind some cloud providers no longer support RSA ssh key types. 
+ - You can create a new public key by running ```ssh-keygen -t ed25519``` on your terminal.
+3. **Launch:**
+   - Review and launch your new Apache server
    - This process might take a minute, once it finished a table with IP address and ssh command will be shown. Copy your new Apache server IP Address.
 
 ### 3. Expose HTTP connection
-*Reminder: this is a demo for dev or demo environment, not production*
 
-To allow HTTP connection in our GCP instance, log in to your GCP console -> VM Instances -> Edit your new instance -> Enable Allow HTTP traffic in Network interfaces section.
+To allow HTTP connection in our GCP instance, log in to your GCP console -> VM Instances -> Edit your new instance -> Enable Allow HTTP traffic under Network interfaces section.
 
 And that's it! your new Apache server is running with your custom RHEL image!
 

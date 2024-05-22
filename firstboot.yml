@@ -61,4 +61,5 @@
     - name: restart apache
       systemd:
         name: httpd
-        state: resta/varrted
+        state: restarted
+
