@@ -4,16 +4,16 @@ As a developer, having access to powerful tools and platforms is crucial for bui
 
 In the competitive arena of startup development, achieving efficiency, security, and cost management is essential, especially when venturing into the public cloud. The Red Hat Developer Subscription stands out as a powerful ally in this journey at no cost. This subscription enables developers to craft custom RHEL images with specific content and packages, apply SCAP (Security Content Automation Protocol) policies, and utilize first-boot scripts. This article delves into how developers and new startups can utilize this invaluable resource to deploy these custom images to the public cloud, ensuring optimized and secure systems while keeping costs in check.
 
-Let's walk through a practical example where we create a custom RHEL image that transformed into an Apache web server serving a "Hello, World!" page on a public cloud.
+Let's walk through a practical example where we create a custom RHEL image that transformed into an Apache web server serving a "Hello, World!" page and deployed on the public cloud, with little effort as possible.
 
 
 ## Red Hat Cloud Services
 
 console.redhat.com serves as a central platform for managing the security and optimization of your RHEL deployments in the public cloud. This comprehensive toolset includes:
 
-**RHEL Security Features:** Monitoring and managing your deployments' security posture, with real-time alerts and vulnerability management.
-**Insights Advisor:** Offering tailored recommendations for enhancing system performance and security. By analyzing specific configurations and usage patterns, it suggests improvements based on a vast repository of best practices.
-**Ansible Playbooks Automation:** Facilitating the application of fixes, addressing Common Vulnerabilities and Exposures (CVEs), and ensuring SCAP compliance. Automating these tasks through Ansible playbooks significantly reduces manual efforts, allowing teams to concentrate on development and innovation.
+* **RHEL Security Features:** Monitoring and managing your deployments' security posture, with real-time alerts and vulnerability management.
+* **Insights Advisor:** Offering tailored recommendations for enhancing system performance and security. By analyzing specific configurations and usage patterns, it suggests improvements based on a vast repository of best practices.
+* **Ansible Playbooks Automation:** Facilitating the application of fixes, addressing Common Vulnerabilities and Exposures (CVEs), and ensuring SCAP compliance. Automating these tasks through Ansible playbooks significantly reduces manual efforts, allowing teams to concentrate on development and innovation.
 These integrated features support a proactive approach to security, providing automated tools and comprehensive insights to help maintain security standards and compliance across your cloud deployments.
 
 
