@@ -1,0 +1,38 @@
+{
+  "customizations": {
+    "files": [
+      {
+        "data": "W1VuaXRdCkRlc2NyaXB0aW9uPVJ1biBmaXJzdCBib290IHNjcmlwdApDb25kaXRpb25QYXRoRXhpc3RzPS91c3IvbG9jYWwvc2Jpbi9jdXN0b20tZmlyc3QtYm9vdApXYW50cz1uZXR3b3JrLW9ubGluZS50YXJnZXQKQWZ0ZXI9bmV0d29yay1vbmxpbmUudGFyZ2V0CkFmdGVyPW9zYnVpbGQtZmlyc3QtYm9vdC5zZXJ2aWNlCgpbU2VydmljZV0KVHlwZT1vbmVzaG90CkV4ZWNTdGFydD0vdXNyL2xvY2FsL3NiaW4vY3VzdG9tLWZpcnN0LWJvb3QKRXhlY1N0YXJ0UG9zdD1tdiAvdXNyL2xvY2FsL3NiaW4vY3VzdG9tLWZpcnN0LWJvb3QgL3Vzci9sb2NhbC9zYmluL2N1c3RvbS1maXJzdC1ib290LmRvbmUKCltJbnN0YWxsXQpXYW50ZWRCeT1tdWx0aS11c2VyLnRhcmdldAo=",
+        "data_encoding": "base64",
+        "ensure_parents": true,
+        "path": "/etc/systemd/system/custom-first-boot.service"
+      },
+      {
+        "data": "IyEvdXNyL2Jpbi9hbnNpYmxlLXBsYXlib29rCgotLS0KLSBob3N0czogbG9jYWxob3N0CiAgY29ubmVjdGlvbjogbG9jYWwKICBiZWNvbWU6IHllcwogIGdhdGhlcl9mYWN0czogeWVzCgogIHRhc2tzOgogICAgLSBuYW1lOiBFbnN1cmUgZmlyZXdhbGxkIGlzIGluc3RhbGxlZAogICAgICB5dW06CiAgICAgICAgbmFtZTogZmlyZXdhbGxkCiAgICAgICAgc3RhdGU6IHByZXNlbnQKCiAgICAtIG5hbWU6IEVuc3VyZSBmaXJld2FsbGQgaXMgc3RhcnRlZCBhbmQgZW5hYmxlZAogICAgICBzeXN0ZW1kOgogICAgICAgIG5hbWU6IGZpcmV3YWxsZAogICAgICAgIHN0YXRlOiBzdGFydGVkCiAgICAgICAgZW5hYmxlZDogdHJ1ZQoKICAgIC0gbmFtZTogSW5zdGFsbCBBcGFjaGUKICAgICAgeXVtOgogICAgICAgIG5hbWU6IGh0dHBkCiAgICAgICAgc3RhdGU6IHByZXNlbnQKCiAgICAtIG5hbWU6IFN0YXJ0IGFuZCBlbmFibGUgQXBhY2hlCiAgICAgIHN5c3RlbWQ6CiAgICAgICAgbmFtZTogaHR0cGQKICAgICAgICBzdGF0ZTogc3RhcnRlZAogICAgICAgIGVuYWJsZWQ6IHRydWUKCiAgICAtIG5hbWU6IERlcGxveSBIZWxsbyBXb3JsZCBIVE1MIHBhZ2UKICAgICAgY29weToKICAgICAgICBjb250ZW50OiB8CiAgICAgICAgICA8aHRtbD4KICAgICAgICAgIDxoZWFkPgogICAgICAgICAgICAgIDx0aXRsZT5IZWxsbyBXb3JsZDwvdGl0bGU+CiAgICAgICAgICA8L2hlYWQ+CiAgICAgICAgICA8Ym9keT4KICAgICAgICAgICAgICA8aDE+SGVsbG8gV29ybGQ8L2gxPgogICAgICAgICAgICAgIDxwPlRoaXMgaXMgYSBiYXNpYyBIVE1MIHBhZ2Ugc2VydmVkIGZyb20gQXBhY2hlIG9uIGEgUkhFTCBtYWNoaW5lIGluIEdDUCB3aXRoIDxhIGhyZWY9J2h0dHBzOi8vY29uc29sZS5yZWRoYXQuY29tJz5JbWFnZSBidWlsZGVyIHNlcnZpY2U8L2E+LjwvcD4KICAgICAgICAgIDwvYm9keT4KICAgICAgICAgIDwvaHRtbD4KICAgICAgICBkZXN0OiAvdmFyL3d3dy9odG1sL2luZGV4Lmh0bWwKICAgICAgbm90aWZ5OgogICAgICAgIC0gcmVzdGFydCBhcGFjaGUKCiAgICAtIG5hbWU6IENvbmZpZ3VyZSBmaXJld2FsbCBmb3Igd2ViIGNvbnNvbGUKICAgICAgaW5jbHVkZV9yb2xlOgogICAgICAgIG5hbWU6IHJlZGhhdC5yaGVsX3N5c3RlbV9yb2xlcy5maXJld2FsbAogICAgICB2YXJzOgogICAgICAgIGZpcmV3YWxsOgogICAgICAgICAgc2VydmljZXM6CiAgICAgICAgICAgIC0gbmFtZTogaHR0cAogICAgICAgICAgICAgIHN0YXRlOiBlbmFibGVkCgogICAgLSBuYW1lOiBDb3JyZWN0IFNFTGludXggY29udGV4dCBmb3IgY3VzdG9tIEhUTUwgcGFnZQogICAgICBjb21tYW5kOiByZXN0b3JlY29uIC12IC92YXIvd3d3L2h0bWwvaW5kZXguaHRtbAoKICBoYW5kbGVyczoKICAgIC0gbmFtZTogcmVzdGFydCBhcGFjaGUKICAgICAgc3lzdGVtZDoKICAgICAgICBuYW1lOiBodHRwZAogICAgICAgIHN0YXRlOiByZXN0YXJ0ZWQKCg==",
+        "data_encoding": "base64",
+        "ensure_parents": true,
+        "mode": "0774",
+        "path": "/usr/local/sbin/custom-first-boot"
+      }
+    ],
+    "packages": ["httpd", "ansible-core", "rhel-system-roles"],
+    "services": {
+      "enabled": ["custom-first-boot"]
+    }
+  },
+  "description": "This blueprint deploys Apache server on Google Cloud ",
+  "distribution": "rhel-9",
+  "image_requests": [
+    {
+      "architecture": "x86_64",
+      "image_type": "gcp",
+      "upload_request": {
+        "options": {
+          "share_with_accounts": ["user:<YOUR_SOURCE@GMAIL.COM>"]
+        },
+        "type": "gcp"
+      }
+    }
+  ],
+  "name": "Apache server"
+}
