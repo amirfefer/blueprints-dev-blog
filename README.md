@@ -1,4 +1,4 @@
-# Maximize Your Development Potential: Free Red Hat Developer Subscription for Custom Deployment (Apache Server) on RHEL in the Cloud
+# Maximize Your Development Potential: Free Red Hat Developer Subscription for Custom RHEL Deployment (Apache Server) in the Cloud
 
 As a developer, having access to powerful tools and platforms is crucial for building, testing, and deploying applications. Red Hat offers a no-cost developer subscription that allows individual developers to use up to 16 systems for demos, prototyping, QA, small production uses, and cloud access. In this blog post, I will guide you through registering for the subscription and demonstrate some of the new features of Red Hat cloud services that are particularly suited for developers.
 
@@ -8,7 +8,7 @@ Let's walk through a practical example where we create a custom RHEL image that 
 
 ## Red Hat Cloud Services
 
-console.redhat.com serves as a central platform for managing the security and optimization of your RHEL deployments in the public cloud. This comprehensive toolset includes:
+console.redhat.com serves as a central platform for managing your systems, enables better security and optimization of your RHEL deployments in the public cloud. This comprehensive toolset includes:
 
 * **RHEL Security Features:** Monitoring and managing your deployments' security posture, with real-time alerts and vulnerability management.
 * **Insights Advisor:** Offering tailored recommendations for enhancing system performance and security. By analyzing specific configurations and usage patterns, it suggests improvements based on a vast repository of best practices.
