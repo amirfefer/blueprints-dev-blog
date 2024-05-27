@@ -1,8 +1,8 @@
 # Maximize Your Development Potential: Free Red Hat Developer Subscription for Custom RHEL Deployment (Apache Server) in the Cloud
 
-As a developer, having access to powerful tools and platforms is crucial for building, testing, and deploying applications. Red Hat offers a no-cost developer subscription that allows individual developers to use up to 16 systems for demos, prototyping, QA, small production uses, and cloud access. In this blog post, I will guide you through registering for the subscription and demonstrate some of the new features of Red Hat cloud services that are particularly suited for developers.
+For developers having access to powerful easy to use tools and platforms is crucial for building, testing, and deploying applications. Red Hat offers a no-cost developer subscription that allows individual developers to use up to 16 systems for demos, prototyping, QA, small production uses, and cloud access. In this blog post, we will explore using this subscription to leverage some of the new features of Red Hat cloud services that are particularly suited for developers.
 
-In the competitive arena of startup development, achieving efficiency, security, and cost management is essential, especially when venturing into the public cloud. The Red Hat Developer Subscription stands out as a powerful ally in this journey at no cost. This subscription enables developers to craft custom RHEL images with specific content and packages, apply SCAP (Security Content Automation Protocol) policies, and utilize first-boot scripts. This article delves into how developers and early stage startups can utilize this invaluable resource to deploy these custom images to the public cloud, ensuring optimized and secure systems while keeping costs in check.
+In the competitive environment of startup development, achieving efficiency and security while maintaining cost is essential, especially when venturing into the public cloud. The Red Hat Developer Subscription stands out as a powerful ally in this journey at no cost. This subscription enables developers to craft custom RHEL production-like images with specific content and packages, applying Security Content Automation Protocol (SCAP) policies, and utilizing first-boot scripts. This article delves into how developers and early stage startups can utilize this invaluable resource to deploy these custom images to the public cloud, ensuring optimized and secure systems while keeping costs in check.
 
 Let's walk through a practical example where we create a custom RHEL image that transforms into an Apache web server serving a "Hello, World!" page and deploy it on the public cloud with minimal effort. This Apache server is just one example of the many types of deployments you can achieve using Red Hat services.
 
@@ -12,7 +12,9 @@ console.redhat.com serves as a central platform for managing your systems, enabl
 
 * **RHEL Security Features:** Monitoring and managing your deployments' security posture, with real-time alerts and vulnerability management.
 * **Insights Advisor:** Offering tailored recommendations for enhancing system performance and security. By analyzing specific configurations and usage patterns, it suggests improvements based on a vast repository of best practices.
-* **Ansible Playbooks Automation:** Facilitating the application of fixes, addressing Common Vulnerabilities and Exposures (CVEs), and ensuring SCAP compliance. Automating these tasks through Ansible playbooks significantly reduces manual efforts, allowing teams to concentrate on development and innovation.
+* **Ansible Playbooks Automation:** Facilitating the application of fixes, addressing Common Vulnerabilities and Exposures (CVEs), and ensuring SCAP compliance. 
+  Automating these tasks through Ansible playbooks significantly reduces manual efforts, allowing teams to concentrate on development and innovation.
+
 These integrated features support a proactive approach to security, providing automated tools and comprehensive insights to help maintain security standards and compliance across your cloud deployments.
 
 
@@ -41,7 +43,7 @@ To deploy your new system to the public cloud, let's create a cloud integration.
 4. Give it a name, we will use this profile name in the next steps
 5. Choose **Launch images** application
 6. Enter your Google Cloud **project ID**
-7. Create a custom role with the required permissions for this integration
+7. Using your terminal create a custom role with the required permissions for this integration
     ```shell
     ROLE_NAME=$(gcloud iam roles create RH_HCC_provisioning_role --project=<YOUR_PROJECT_ID> --title=RH_HCC_provisioning_role --permissions=compute.disks.create,compute.images.useReadOnly,compute.instanceTemplates.create,compute.instanceTemplates.list,compute.instanceTemplates.useReadOnly,compute.instances.create,compute.instances.get,compute.instances.list,compute.instances.setLabels,compute.instances.setMetadata,compute.instances.setServiceAccount,compute.networks.useExternalIp,compute.subnetworks.use,compute.subnetworks.useExternalIp,iam.roles.get,iam.serviceAccounts.actAs,iam.serviceAccounts.getIamPolicy,resourcemanager.projects.getIamPolicy,serviceusage.services.use,compute.instances.setTags,compute.regions.list | grep -oP 'name:\s+\K.+')
     ```
@@ -52,12 +54,12 @@ To deploy your new system to the public cloud, let's create a cloud integration.
 ```shell
 gcloud projects add-iam-policy-binding <YOUR_PROJECT_ID> --member=serviceAccount:provisioning@red-hat-hcc.iam.gserviceaccount.com --role=$ROLE_NAME
 ```
-9. Review details and click **Add**
+9. Back in your browser review details and click **Add**
 
 
 ### 2. Create and Customize a Red Hat Linux Image via blueprints
 
-Red Hat cloud services allow you to create and customize Red Hat Enterprise Linux (RHEL) images using blueprints. Create a blueprint for your **golden image**, modify it over time as your needs change, and use it to build and deploy images on demand. Here's how to do it, Let's create a blueprint for our Apache demo.
+Red Hat cloud services allow you to create and customize Red Hat Enterprise Linux (RHEL) images using blueprints. Create a blueprint for your **golden image**, modify it over time as your needs change, and use it to build and deploy images on demand. Here's how to do it. Let's create a blueprint for our Apache demo.
 
 **Tip**: You can skip this entire blueprint creation by importing this [exported blueprint](exported_blueprint.json).
 
@@ -191,7 +193,7 @@ Keep in mind some cloud providers no longer support RSA SSH key types.
 
 ### 4. Expose HTTP connection
 
-To allow HTTP connection in our GCP instance, log in to your GCP console -> VM Instances -> Edit your new instance -> Enable Allow HTTP traffic under **Network interfaces** section.
+To allow HTTP connection to our GCP instance, log in to your GCP console -> VM Instances -> Edit your new instance -> Enable Allow HTTP traffic under **Network interfaces** section.
 
 And that's it! your new Apache server is running with your custom RHEL image!
 
