@@ -4,7 +4,7 @@ For developers having access to powerful easy to use tools and platforms is cruc
 
 In the competitive environment of startup development, achieving efficiency and security while maintaining cost is essential, especially when venturing into the public cloud. The Red Hat Developer Subscription stands out as a powerful ally in this journey at no cost. This subscription enables developers to craft custom RHEL production-like images with specific content and packages, applying Security Content Automation Protocol (SCAP) policies, and utilizing first-boot scripts. This article delves into how developers and early stage startups can utilize this invaluable resource to deploy these custom images to the public cloud, ensuring optimized and secure systems while keeping costs in check.
 
-Let's walk through a practical example where we create custom RHEL images and deployed on the public cloud with minimal effort.
+Let's walk through practical examples where we create custom RHEL images and deploy them on the public cloud with minimal effort.
 
    -  An Apache web server serving a "Hello, World!" page
    -  A node-express [example](https://github.com/expressjs/express/blob/master/examples/hello-world/index.js) taken from the official express repository.
@@ -13,7 +13,7 @@ Let's walk through a practical example where we create custom RHEL images and de
 
 ## Red Hat Cloud Services
 
-console.redhat.com serves as a central platform for managing your systems, enables better security and optimization of your RHEL deployments in the public cloud. This comprehensive toolset includes:
+[Red Hat console](https://console.redhat.com) serves as a central platform for managing your systems, enables better security and optimization of your RHEL deployments in the public cloud. This comprehensive toolset includes:
 
 * **RHEL Security Features:** Monitoring and managing your deployments' security posture, with real-time alerts and vulnerability management.
 * **Insights Advisor:** Offering tailored recommendations for enhancing system performance and security. By analyzing specific configurations and usage patterns, it suggests improvements based on a vast repository of best practices.
