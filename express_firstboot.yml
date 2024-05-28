@@ -1,0 +1,79 @@
+#!/usr/bin/ansible-playbook
+
+---
+- name: Setup and run Express API on RHEL 9
+  hosts: localhost
+  become: yes
+  collections:
+    - redhat.rhel_system_roles
+
+  tasks:
+    - name: Ensure git is installed
+      yum:
+        name: git
+        state: present
+
+    - name: Ensure Node.js is installed
+      yum:
+        name: nodejs
+        state: present
+
+    - name: Clone the Express API example repository
+      git:
+        repo: 'https://github.com/expressjs/express.git'
+        dest: /opt/express
+        version: master
+        depth: 1
+
+    - name: Change directory to hello-world example
+      command: cd /opt/express/examples/hello-world
+      args:
+        chdir: /opt/express/examples/hello-world
+      register: hello_world_dir
+
+    - name: Install npm dependencies
+      command: npm install
+      args:
+        chdir: /opt/express/examples/hello-world
+
+    - name: Create systemd service file for Express API
+      copy:
+        dest: /etc/systemd/system/express-hello-world.service
+        content: |
+          [Unit]
+          Description=Express Hello World API
+          After=network.target
+
+          [Service]
+          ExecStart=/usr/bin/node /opt/express/examples/hello-world/index.js
+          WorkingDirectory=/opt/express/examples/hello-world
+          Restart=always
+          User=nobody
+          Environment=NODE_ENV=production
+          StandardOutput=syslog
+          StandardError=syslog
+          SyslogIdentifier=express-hello-world
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Reload systemd to recognize the new service
+      systemd:
+        daemon_reload: yes
+
+    - name: Enable and start the Express Hello World service
+      systemd:
+        name: express-hello-world
+        enabled: yes
+        state: started
+
+    - name: Open firewall port 3000 using firewall system role
+      include_role:
+        name: rhel-system-roles.firewall
+      vars:
+        firewall:
+          ports:
+            - port: 3000
+              protocol: tcp
+              state: enabled
+              permanent: yes

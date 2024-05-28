@@ -1,0 +1,48 @@
+{
+  "customizations": {
+    "files": [
+      {
+        "data": "W1VuaXRdCkRlc2NyaXB0aW9uPVJ1biBmaXJzdCBib290IHNjcmlwdApDb25kaXRpb25QYXRoRXhpc3RzPS91c3IvbG9jYWwvc2Jpbi9jdXN0b20tZmlyc3QtYm9vdApXYW50cz1uZXR3b3JrLW9ubGluZS50YXJnZXQKQWZ0ZXI9bmV0d29yay1vbmxpbmUudGFyZ2V0CkFmdGVyPW9zYnVpbGQtZmlyc3QtYm9vdC5zZXJ2aWNlCgpbU2VydmljZV0KVHlwZT1vbmVzaG90CkV4ZWNTdGFydD0vdXNyL2xvY2FsL3NiaW4vY3VzdG9tLWZpcnN0LWJvb3QKRXhlY1N0YXJ0UG9zdD1tdiAvdXNyL2xvY2FsL3NiaW4vY3VzdG9tLWZpcnN0LWJvb3QgL3Vzci9sb2NhbC9zYmluL2N1c3RvbS1maXJzdC1ib290LmRvbmUKCltJbnN0YWxsXQpXYW50ZWRCeT1tdWx0aS11c2VyLnRhcmdldAo=",
+        "data_encoding": "base64",
+        "ensure_parents": true,
+        "path": "/etc/systemd/system/custom-first-boot.service"
+      },
+      {
+        "data": "IyEvdXNyL2Jpbi9hbnNpYmxlLXBsYXlib29rCgotLS0KLSBuYW1lOiBTZXR1cCBhbmQgcnVuIEV4cHJlc3MgQVBJIG9uIFJIRUwgOQogIGhvc3RzOiBsb2NhbGhvc3QKICBiZWNvbWU6IHllcwogIGNvbGxlY3Rpb25zOgogICAgLSByZWRoYXQucmhlbF9zeXN0ZW1fcm9sZXMKCiAgdGFza3M6CiAgICAtIG5hbWU6IEVuc3VyZSBnaXQgaXMgaW5zdGFsbGVkCiAgICAgIHl1bToKICAgICAgICBuYW1lOiBnaXQKICAgICAgICBzdGF0ZTogcHJlc2VudAoKICAgIC0gbmFtZTogRW5zdXJlIE5vZGUuanMgaXMgaW5zdGFsbGVkCiAgICAgIHl1bToKICAgICAgICBuYW1lOiBub2RlanMKICAgICAgICBzdGF0ZTogcHJlc2VudAoKICAgIC0gbmFtZTogQ2xvbmUgdGhlIEV4cHJlc3MgQVBJIGV4YW1wbGUgcmVwb3NpdG9yeQogICAgICBnaXQ6CiAgICAgICAgcmVwbzogJ2h0dHBzOi8vZ2l0aHViLmNvbS9leHByZXNzanMvZXhwcmVzcy5naXQnCiAgICAgICAgZGVzdDogL29wdC9leHByZXNzCiAgICAgICAgdmVyc2lvbjogbWFzdGVyCiAgICAgICAgZGVwdGg6IDEKCiAgICAtIG5hbWU6IENoYW5nZSBkaXJlY3RvcnkgdG8gaGVsbG8td29ybGQgZXhhbXBsZQogICAgICBjb21tYW5kOiBjZCAvb3B0L2V4cHJlc3MvZXhhbXBsZXMvaGVsbG8td29ybGQKICAgICAgYXJnczoKICAgICAgICBjaGRpcjogL29wdC9leHByZXNzL2V4YW1wbGVzL2hlbGxvLXdvcmxkCiAgICAgIHJlZ2lzdGVyOiBoZWxsb193b3JsZF9kaXIKCiAgICAtIG5hbWU6IEluc3RhbGwgbnBtIGRlcGVuZGVuY2llcwogICAgICBjb21tYW5kOiBucG0gaW5zdGFsbAogICAgICBhcmdzOgogICAgICAgIGNoZGlyOiAvb3B0L2V4cHJlc3MvZXhhbXBsZXMvaGVsbG8td29ybGQKCiAgICAtIG5hbWU6IENyZWF0ZSBzeXN0ZW1kIHNlcnZpY2UgZmlsZSBmb3IgRXhwcmVzcyBBUEkKICAgICAgY29weToKICAgICAgICBkZXN0OiAvZXRjL3N5c3RlbWQvc3lzdGVtL2V4cHJlc3MtaGVsbG8td29ybGQuc2VydmljZQogICAgICAgIGNvbnRlbnQ6IHwKICAgICAgICAgIFtVbml0XQogICAgICAgICAgRGVzY3JpcHRpb249RXhwcmVzcyBIZWxsbyBXb3JsZCBBUEkKICAgICAgICAgIEFmdGVyPW5ldHdvcmsudGFyZ2V0CgogICAgICAgICAgW1NlcnZpY2VdCiAgICAgICAgICBFeGVjU3RhcnQ9L3Vzci9iaW4vbm9kZSAvb3B0L2V4cHJlc3MvZXhhbXBsZXMvaGVsbG8td29ybGQvaW5kZXguanMKICAgICAgICAgIFdvcmtpbmdEaXJlY3Rvcnk9L29wdC9leHByZXNzL2V4YW1wbGVzL2hlbGxvLXdvcmxkCiAgICAgICAgICBSZXN0YXJ0PWFsd2F5cwogICAgICAgICAgVXNlcj1ub2JvZHkKICAgICAgICAgIEVudmlyb25tZW50PU5PREVfRU5WPXByb2R1Y3Rpb24KICAgICAgICAgIFN0YW5kYXJkT3V0cHV0PXN5c2xvZwogICAgICAgICAgU3RhbmRhcmRFcnJvcj1zeXNsb2cKICAgICAgICAgIFN5c2xvZ0lkZW50aWZpZXI9ZXhwcmVzcy1oZWxsby13b3JsZAoKICAgICAgICAgIFtJbnN0YWxsXQogICAgICAgICAgV2FudGVkQnk9bXVsdGktdXNlci50YXJnZXQKCiAgICAtIG5hbWU6IFJlbG9hZCBzeXN0ZW1kIHRvIHJlY29nbml6ZSB0aGUgbmV3IHNlcnZpY2UKICAgICAgc3lzdGVtZDoKICAgICAgICBkYWVtb25fcmVsb2FkOiB5ZXMKCiAgICAtIG5hbWU6IEVuYWJsZSBhbmQgc3RhcnQgdGhlIEV4cHJlc3MgSGVsbG8gV29ybGQgc2VydmljZQogICAgICBzeXN0ZW1kOgogICAgICAgIG5hbWU6IGV4cHJlc3MtaGVsbG8td29ybGQKICAgICAgICBlbmFibGVkOiB5ZXMKICAgICAgICBzdGF0ZTogc3RhcnRlZAoKICAgIC0gbmFtZTogT3BlbiBmaXJld2FsbCBwb3J0IDMwMDAgdXNpbmcgZmlyZXdhbGwgc3lzdGVtIHJvbGUKICAgICAgaW5jbHVkZV9yb2xlOgogICAgICAgIG5hbWU6IHJoZWwtc3lzdGVtLXJvbGVzLmZpcmV3YWxsCiAgICAgIHZhcnM6CiAgICAgICAgZmlyZXdhbGw6CiAgICAgICAgICBwb3J0czoKICAgICAgICAgICAgLSBwb3J0OiAzMDAwCiAgICAgICAgICAgICAgcHJvdG9jb2w6IHRjcAogICAgICAgICAgICAgIHN0YXRlOiBlbmFibGVkCiAgICAgICAgICAgICAgcGVybWFuZW50OiB5ZXMK",
+        "data_encoding": "base64",
+        "ensure_parents": true,
+        "mode": "0774",
+        "path": "/usr/local/sbin/custom-first-boot"
+      }
+    ],
+    "packages": [
+      "nodejs",
+      "npm",
+      "git",
+      "rhel-system-roles"
+    ],
+    "services": {
+      "enabled": [
+        "custom-first-boot"
+      ]
+    }
+  },
+  "description": "express official hello world example",
+  "distribution": "rhel-9",
+  "id": "c95219f3-e532-479e-8673-e4a3b7f3ae43",
+  "image_requests": [
+    {
+      "architecture": "x86_64",
+      "image_type": "gcp",
+      "upload_request": {
+        "options": {
+          "share_with_accounts": [
+            "user:changeme@gmail.com"
+          ]
+        },
+        "type": "gcp"
+      }
+    }
+  ],
+  "name": "Express API "
+}

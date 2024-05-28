@@ -28,7 +28,7 @@
       "image_type": "gcp",
       "upload_request": {
         "options": {
-          "share_with_accounts": ["user:<YOUR_SOURCE@GMAIL.COM>"]
+          "share_with_accounts": ["user:your_source@gmail.com"]
         },
         "type": "gcp"
       }

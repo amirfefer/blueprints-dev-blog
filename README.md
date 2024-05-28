@@ -1,10 +1,15 @@
-# Maximize Your Development Potential: Free Red Hat Developer Subscription for Custom RHEL Deployment (Apache Server) in the Cloud
+# Maximize Your Development Potential: Free Red Hat Developer Subscription for Custom RHEL Deployment (Express API / Apache Server) in the Cloud
 
 For developers having access to powerful easy to use tools and platforms is crucial for building, testing, and deploying applications. Red Hat offers a no-cost developer subscription that allows individual developers to use up to 16 systems for demos, prototyping, QA, small production uses, and cloud access. In this blog post, we will explore using this subscription to leverage some of the new features of Red Hat cloud services that are particularly suited for developers.
 
 In the competitive environment of startup development, achieving efficiency and security while maintaining cost is essential, especially when venturing into the public cloud. The Red Hat Developer Subscription stands out as a powerful ally in this journey at no cost. This subscription enables developers to craft custom RHEL production-like images with specific content and packages, applying Security Content Automation Protocol (SCAP) policies, and utilizing first-boot scripts. This article delves into how developers and early stage startups can utilize this invaluable resource to deploy these custom images to the public cloud, ensuring optimized and secure systems while keeping costs in check.
 
-Let's walk through a practical example where we create a custom RHEL image that transforms into an Apache web server serving a "Hello, World!" page and deploy it on the public cloud with minimal effort. This Apache server is just one example of the many types of deployments you can achieve using Red Hat services.
+Let's walk through a practical example where we create custom RHEL images and deployed on the public cloud with minimal effort.
+
+   -  An Apache web server serving a "Hello, World!" page
+   -  A node-express [example](https://github.com/expressjs/express/blob/master/examples/hello-world/index.js) taken from the official express repository.
+
+ These deployments are just two examples of the many types of deployments you can achieve using Red Hat services.
 
 ## Red Hat Cloud Services
 
@@ -61,7 +66,9 @@ gcloud projects add-iam-policy-binding <YOUR_PROJECT_ID> --member=serviceAccount
 
 Red Hat cloud services allow you to create and customize Red Hat Enterprise Linux (RHEL) images using blueprints. Create a blueprint for your **golden image**, modify it over time as your needs change, and use it to build and deploy images on demand. Here's how to do it. Let's create a blueprint for our Apache demo.
 
-**Tip**: You can skip this entire blueprint creation by importing this [exported blueprint](exported_blueprint.json).
+**Tip**: You can skip this entire blueprint creation by importing these blueprints:
+   - [Apache blueprint](/apache_blueprint.json)
+   - [Express API blueprint](/express_blueprint.json) 
 
 ![blueprint wizard](blueprint_wizard.png)
 
@@ -89,13 +96,28 @@ Red Hat cloud services allow you to create and customize Red Hat Enterprise Linu
 6. **Manage content:**
  This step allows you to customize the repositories and packages.
  Go to **Additional packages** search and add these packages:
- - httpd: Apache server
- - ansible-core: For running the first boot playbook
- - rhel-system-roles: For using RHEL ansible roles
+
+ #### Apache
+  - httpd: Apache server
+  - ansible-core: For running the first boot playbook
+  - rhel-system-roles: For using RHEL ansible roles
+
+ #### Express API
+  - git: for git clone express example repo
+  - nodejs
+  - npm
+  - ansible-core: For running the first boot playbook
+  - rhel-system-roles: For using RHEL ansible roles
+
 
 7. **First boot:**
  This step configures the image with a custom script that executes on its first boot. The script can be shell, python, yml, etc. Just add on top shebang string.
- For this demo, we use this Ansible [playbook](firstboot.yml) which transforms the system into an Apache server:
+ For this demo, we use these two Ansible playbooks:
+
+  - [Apache](/apache_firstboot.yml)
+  - [Express API](/express_firstboot.yml)
+
+Here's the Apache's playbook:
 
  ```yaml
 #!/usr/bin/ansible-playbook
@@ -194,7 +216,8 @@ Keep in mind some cloud providers no longer support RSA SSH key types.
 ### 4. Expose HTTP connection
 
 To allow HTTP connection to our GCP instance, log in to your GCP console -> VM Instances -> Edit your new instance -> Enable Allow HTTP traffic under **Network interfaces** section.
+For the express example, create a custom firewall rule for opening port 3000.
 
-And that's it! your new Apache server is running with your custom RHEL image!
+And that's it! your new Apache server / express API is running with your custom RHEL image!
 
 ![hello world page](hello_world.png)
