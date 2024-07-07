@@ -35,32 +35,22 @@ To get started, follow these steps to register for the Red Hat Developer Subscri
 
 ## Using Red Hat Cloud Services
 
-### 1. Public cloud integration setup
+### 1. Public cloud integration setup (AWS)
 
-To deploy your new system to the public cloud, let's create a cloud integration. In this post, we use Google Cloud, but you may pick another cloud provider (AWS, Azure). This step is optional, you may create blueprints and build custom images as iso installer and qcow2.
+To deploy your new system to the public cloud, let's create a cloud integration. In this tutorial, we'll use AWS, but you can choose another cloud provider such as GCP or Azure. This step is optional; you may also create blueprints and build custom images as ISO installers and QCOW2 for virtual machines.
 
-*For initial setup, [gcloud cli](https://cloud.google.com/sdk/docs/install) is required*
+![AWS integration wizard](AWS_integration.png)
 
-1. Visit the [Red Hat Integrations page](https://console.redhat.com/settings/integrations)
+1. Visit the [Red Hat Integrations page](https://console.redhat.com/settings/integrations).
+2. Navigate to the Cloud tab and click on Add Integration.
+3. Choose your cloud provider (in this example, AWS).
+4. Assign a name to this integration profile; we'll use this profile name in the following steps.
+5. Select the Launch Images application.
+6. Enter your AWS account number.
+7. Click Connect AWS. This will open a new window and redirect you to the AWS CloudFormation stack    creation page. Click on Create Stack to generate the required policy and role for this integration.
+8. Return to the Red Hat wizard page, click Next, verify the created role's ARN and add the new integration.
 
-2. In the **Cloud** tab click on **Add integration**
-3. Choose a cloud provider (Google Cloud)
-4. Give it a name, we will use this profile name in the next steps
-5. Choose **Launch images** application
-6. Enter your Google Cloud **project ID**
-7. Using your terminal create a custom role with the required permissions for this integration
-    ```shell
-    ROLE_NAME=$(gcloud iam roles create RH_HCC_provisioning_role --project=<YOUR_PROJECT_ID> --title=RH_HCC_provisioning_role --permissions=compute.disks.create,compute.images.useReadOnly,compute.instanceTemplates.create,compute.instanceTemplates.list,compute.instanceTemplates.useReadOnly,compute.instances.create,compute.instances.get,compute.instances.list,compute.instances.setLabels,compute.instances.setMetadata,compute.instances.setServiceAccount,compute.networks.useExternalIp,compute.subnetworks.use,compute.subnetworks.useExternalIp,iam.roles.get,iam.serviceAccounts.actAs,iam.serviceAccounts.getIamPolicy,resourcemanager.projects.getIamPolicy,serviceusage.services.use,compute.instances.setTags,compute.regions.list | grep -oP 'name:\s+\K.+')
-    ```
-    *For mac users, use ```ggrep``` instead*
-
-8. Attach the new role to Red Hat service account
-
-```shell
-gcloud projects add-iam-policy-binding <YOUR_PROJECT_ID> --member=serviceAccount:provisioning@red-hat-hcc.iam.gserviceaccount.com --role=$ROLE_NAME
-```
-9. Back in your browser review details and click **Add**
-
+Your new cloud integration is now ready.
 
 ### 2. Create and Customize a Red Hat Linux Image via blueprints
 
@@ -204,8 +194,8 @@ The build process takes a few minutes, once the image has been built successfull
 ![launch wizard](launch_wizard.png)
 
 1. **Compute configuration:**
- - Select your Google Cloud source.
- - Select a machine type, you can filter by vcpus, memory, and capacity. Type *vcpus=1 and memory>2000* and pick **n1-standard-1** for this demo.
+ - Select your AWS integration.
+ - Select a instance type, you can filter by vcpus, memory, and capacity. Type *vcpus=1 and memory>2000* and pick **t2.small** for this demo.
 2. **SSH key:**
 Keep in mind some cloud providers no longer support RSA SSH key types. 
  - You can create a new public key by running ```ssh-keygen -t ed25519``` on your terminal.
@@ -215,8 +205,7 @@ Keep in mind some cloud providers no longer support RSA SSH key types.
 
 ### 4. Expose HTTP connection
 
-To allow HTTP connection to our GCP instance, log in to your GCP console -> VM Instances -> Edit your new instance -> Enable Allow HTTP traffic under **Network interfaces** section.
-For the express example, create a custom firewall rule for opening port 3000.
+To allow HTTP connections or any other inbound traffic, log in to your AWS console and add the desired rule in the created VM's associated VPC security group.
 
 And that's it! your new Apache server / express API is running with your custom RHEL image!
 
