@@ -1,0 +1,65 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: Deploy Web Application with Podman on RHEL using RHEL System Roles
+  hosts: localhost
+  become: yes  # Adjust based on rootful or rootless Podman
+
+  vars:
+    repo_url: "https://github.com/amirfefer/awesome-compose.git"
+    subdir_path: "react-express-mongodb"
+    app_dir: "/opt/demo-app"
+    podman_network_name: "demo_network"
+    public_interface: "eth0"
+    log_file: "/var/log/podman_compose.log"  # Log file for capturing compose output
+
+  tasks:
+    - name: Install required packages
+      yum:
+        name:
+          - git
+          - podman
+          - python3-pip
+        state: present
+
+    - name: Clone the GitHub repository
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ app_dir }}"
+        version: "master"
+
+    - name: Ensure the subdirectory exists
+      stat:
+        path: "{{ app_dir }}/{{ subdir_path }}"
+      register: subdir_exists
+
+    - name: Fail if subdirectory does not exist
+      fail:
+        msg: "The specified subdirectory {{ subdir_path }} does not exist in the repository."
+      when: not subdir_exists.stat.exists
+
+    - name: Check if Podman network exists
+      command: podman network inspect {{ podman_network_name }}
+      register: podman_network_exists
+      ignore_errors: true
+
+    - name: Create Podman network if it does not exist
+      command: podman network create {{ podman_network_name }}
+      when: podman_network_exists.rc != 0
+
+    - name: Run Podman Compose to start containers
+      command: podman-compose -f {{ app_dir }}/{{ subdir_path }}/compose.yaml up -d
+      args:
+        chdir: "{{ app_dir }}/{{ subdir_path }}"
+
+    - name: Display status of Podman containers
+      command: podman ps
+      register: podman_status
+
+    - name: Show the Podman container status
+      debug:
+        msg: "{{ podman_status.stdout }}"
+    - name: Save Podman Compose output to log file
+      copy:
+        content: "{{ compose_output.stdout }}"
+        dest: "{{ log_file }}"
+      when: compose_output.stdout is defined
