@@ -1,4 +1,5 @@
-# From Code to Cloud: Craft & Deploy Custom RHEL Images for the Cloud with Red Hat’s No-Cost Dev Subscription
+# From Code to Cloud
+### Craft & Deploy Custom RHEL Images for the Cloud with Red Hat’s No-Cost Dev Subscription
 
 For developers having access to powerful easy to use tools and platforms is crucial for building, testing, and deploying applications. Red Hat offers a no-cost developer subscription that allows individual developers to use up to 16 systems for demos, prototyping, QA, small production uses, and cloud access. In this blog post, we will explore using this subscription to leverage some of the new features of Red Hat cloud services that are particularly suited for developers.
 
